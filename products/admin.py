@@ -11,6 +11,9 @@ from .models import (
     Design,
     Size,
     Color,
+    Product,
+    ProductOptions,
+    ProductImages,
 )
 
 
@@ -82,7 +85,43 @@ class ColorAdmin(admin.ModelAdmin):
     )
 
 
+class ProductImagesAdmin(NestedTabularInline):
+    model = ProductImages
+    list_display = (
+        'article',
+        'main_image_url',
+    )
+
+
+class ProductOptionsAdmin(NestedStackedInline):
+    model = ProductOptions
+    inlines = [ProductImagesAdmin, ]
+    list_display = (
+        'product',
+        'size',
+        'color',
+    )
+
+
+class ProductAdmin(NestedModelAdmin):
+    readonly_fields = ('name', )
+    inlines = [ProductOptionsAdmin, ]
+    list_display = (
+        'category',
+        'design',
+        'template_link',
+        'display_name',
+        )
+
+    def template_link_admin(self, obj):
+        if obj.template_link:
+            return "<a href='%s'>Link</a>" % obj.template_link
+        else:
+            return ''
+
+
 admin.site.register(ProductGroup, ProductGroupAdmin)
 admin.site.register(ProductDesignGroup, ProductDesignGroupAdmin)
 admin.site.register(Color, ColorAdmin)
 admin.site.register(Size, SizeAdmin)
+admin.site.register(Product, ProductAdmin)

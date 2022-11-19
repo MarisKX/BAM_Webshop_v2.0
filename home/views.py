@@ -12,7 +12,6 @@ def index(request):
     all_product_design_groups = ProductDesignGroup.objects.all().order_by('display_name', )
     all_designs = Design.objects.all().order_by('display_name', )
     all_product_groups = ProductGroup.objects.all().order_by('display_name', )
-    print(all_designs)
 
     context = {
         'all_product_design_groups': all_product_design_groups,
