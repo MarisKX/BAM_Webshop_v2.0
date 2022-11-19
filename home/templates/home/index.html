@@ -15,5 +15,12 @@
         <div class="row">
             <div class="col display-5 text-success">All Products</div>
         </div>
+        <div>
+            {% for design in all_designs %}
+                <p>{{ design.display_name }}</p>
+                <p>{{ design.product_design_category.display_name }}</p>
+                <p>{{ design.product_design_category.product_design_group.display_name }}</p>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
