@@ -1,3 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![CI logo](https://raw.githubusercontent.com/MarisKX/BAM_Webshopv2.0/main/media/MediumSquareLogo.jpg)
 
 
