@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <a href="{% url 'home' %}" class="nav-link main-logo">
+            <h1 class="my-0">
+                <img src="{{ MEDIA_URL }}FaviconLogo.png">
+            </h1>
+        </a>
+    </div>
+    <div class="col-12 col-lg-8 my-auto py-1 py-lg-0">
+        <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+            <li class="list-inline-item dropdown">
+                <a class="text-black nav-link" href="#" id="user-options" data-mdb-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                        <div>
+                            <i class="fa-duotone fa-user fa-lg"></i>
+                            <span class="ms-2">My Account</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0 rounded-0" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="" class="dropdown-item">Product Management</a>
+                        {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="list-inline-item">
+                <a class="{% if total %}text-black-orange fs-5 fw-bold{% else %}text-black{% endif %} nav-link" href="">
+                    <div class="text-center">
+                        <div>
+                            <i class="fa-duotone fa-cart-shopping fa-lg"></i>
+                          <span class="ms-2">
+                            {% if order_total %}
+                                  {{ order_total|floatformat:2 }} <i class="fas fa-euro-sign"></i>
+                              {% else %}
+                                  0.00 <i class="fas fa-euro-sign"></i>
+                              {% endif %}
+                          </span>   
+                        </div>                           
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
