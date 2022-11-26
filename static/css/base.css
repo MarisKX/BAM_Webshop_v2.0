@@ -12,3 +12,27 @@ body {
 .header-container {
     height: 100px;
 }
+
+
+/* Colors */
+
+
+.bg-orange {
+    background-color: rgb(254,124,0);
+}
+
+/* TopNav Styles */
+
+.top-nav-row {
+    background: linear-gradient(to right, rgba(254, 124, 0, 1.0) 5%, rgba(57, 59, 67, 0.0)25%,rgba(57, 59, 67, 0.0) 75%,rgba(254, 124, 0, 1.0) 95%);
+}
+
+.top-menu-btn {
+    width: 230px;
+    padding: 0.625rem 0.5rem 0.5rem;
+    font-size: 0.9rem!important;
+}
+
+.top-nav-row-menu {
+    height: 60px;
+}

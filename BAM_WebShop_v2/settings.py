@@ -69,6 +69,12 @@ INSTALLED_APPS = [
     'products',
 ]
 
+
+# Custom setting for .is_ajax function to work
+MIDDLEWARE = [
+    'home.middleware.AjaxMiddleware',
+]
+
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

@@ -1,0 +1,20 @@
+<div class="row top-nav-row-menu">
+    <div class="col-md-8 offset-md-2 my-auto py-1 py-lg-0 text-center text-lg-left">
+        {% for group in all_product_groups %}
+        <div class="btn-group">
+            <button
+              class="btn top-menu-btn dropdown-toggle bg-orange fw-bold"
+              type="button"
+              id="{{ group.id }}"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ group.display_name }}
+            </button>
+            <ul class="dropdown-menu closed" aria-labelledby="{{ group.name }}">
+
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>

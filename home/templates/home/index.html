@@ -24,3 +24,33 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- Custom Scripts -->
+    <script>
+    $(document).ready(function(){
+        $(".top-menu-btn").click(function(){
+            let list = $(this).next()
+            if (list.hasClass("closed")) {
+                $.ajax({
+                    url: '',
+                    type: 'get',
+                    data: {
+                        product_group: $(this).attr("id")
+                    },
+                    success: function(response){
+                        let categories = response.categories_to_return
+                        $.each(categories,function(key, value){ 
+                            $(list).append('<li><a class="dropdown-item" href="#">' + value + '</a></li>');
+                        });
+                    }
+                });
+                list.removeClass("closed")
+            };    
+        });
+
+    });
+    </script>
+
+{% endblock %}
