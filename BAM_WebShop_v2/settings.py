@@ -29,7 +29,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ['https://8020-mariskx-bamwebshopv20-kzflc7d623l.ws-eu74.gitpod.io', ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://8020-mariskx-bamwebshopv20-kzflc7d623l.ws-eu77.gitpod.io',
+    'https://8040-mariskx-bamwebshopv20-kzflc7d623l.ws-eu77.gitpod.io',
+    ]
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`

@@ -201,5 +201,5 @@ class ProductOptions(models.Model):
 
 class ProductImages(models.Model):
     article = models.ForeignKey('ProductOptions', null=False, blank=False, on_delete=models.CASCADE)
-    main_image_url = models.URLField(max_length=1024, null=True, blank=True)
-    main_image = models.ImageField(null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
