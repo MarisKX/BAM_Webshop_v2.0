@@ -20,10 +20,15 @@ def index(request):
 
     if is_ajax(request):
         product_group = request.GET.get('product_group')
-        # product_categories = Category.objects.filter(product_group=product_group)
-        # return JsonResponse(product_categories, safe=False)
-        product_categories = Category.objects.filter(product_group=product_group).values_list('display_name')
-        return JsonResponse({"categories_to_return": list(product_categories)})
+        design_group = request.GET.get('design_group')
+        if design_group is not None:
+            print(design_group)
+            design_categories = DesignCategory.objects.filter(product_design_group=design_group).values_list('display_name').order_by('name')
+            return JsonResponse({"designs_to_return": list(design_categories)})
+        elif product_group is not None:
+            product_categories = Category.objects.filter(product_group=product_group).values_list('display_name').order_by('name')
+            return JsonResponse({"categories_to_return": list(product_categories)})
+            print(product_group)
 
     context = {
         'all_product_groups': all_product_groups,

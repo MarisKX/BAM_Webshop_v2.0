@@ -1,9 +1,9 @@
 <div class="row top-nav-row-menu">
-    <div class="col-md-8 offset-md-2 my-auto py-1 py-lg-0 text-center text-lg-left">
+    <div class="col-xxl-8 col-xl-10 offset-xxl-2 offset-xl-1 my-auto py-1 py-lg-0 text-center text-lg-left">
         {% for group in all_product_groups %}
         <div class="btn-group">
             <button
-              class="btn top-menu-btn dropdown-toggle bg-orange fw-bold"
+              class="btn top-menu-btn dropdown-toggle bg-orange fw-bold product-group-btn"
               type="button"
               id="{{ group.id }}"
               data-mdb-toggle="dropdown"
@@ -16,5 +16,25 @@
             </ul>
         </div>
         {% endfor %}
-    </div>
+      </div>
+      <div class="col-xxl-8 col-xl-10 offset-xxl-2 offset-xl-1 my-auto py-1 py-lg-0 text-center text-lg-left design-btn-group-wrapper">
+        <i class="fa-duotone fa-chevrons-left"></i>
+        {% for design in all_product_design_groups %}
+        <div class="btn-group design-btn-group d-none">
+            <button
+              class="btn top-menu-btn dropdown-toggle bg-orange fw-bold design-group-btn"
+              type="button"
+              id="{{ design.id }}"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ design.display_name }}
+            </button>
+            <ul class="dropdown-menu closed" aria-labelledby="{{ design.name }}">
+
+            </ul>
+        </div>
+        {% endfor %}
+        <i class="fa-duotone fa-chevrons-right"></i>
+		</div>		
 </div>
